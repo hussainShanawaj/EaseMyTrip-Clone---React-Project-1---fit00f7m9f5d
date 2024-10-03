@@ -1,28 +1,25 @@
+
 import React, { useState } from "react";
-import Navbar from "../../../components/NavBar/Navbar";
-import Classes from "../Flights.module.css";
-import upiQr from "../../../Design/PhonePayUpiQr.jpg";
-import { useAuth } from "../../../components/Context";
-import Divider from "@mui/material/Divider";
-//import PaymentSuccessfull from "../../PaymentSuccessfull/PaymentSuccessfull";
-import PaymentSuccessfull from "../../Payment Successfull/PaymentSuccessfull";
+import Navbar from "../../../components/NavBar/Navbar"; // Importing Navbar component
+import Classes from "../Hotels.module.css"; // Importing CSS modules
+import upiQr from "../../../Design/PhonePayUpiQr.jpg"; // Importing UPI QR image
+import { useAuth } from "../../../components/Context"; // Importing useAuth context hook
+import Divider from "@mui/material/Divider"; // Importing Divider component from Material-UI
+import PaymentSuccessfull from "../../Payment Successfull/PaymentSuccessfull"; // Importing PaymentSuccessfull component
 
+function HotelPayment() {
+  const [selectedOption, setSelectedOption] = useState("UPI"); // State for selected payment option (initially UPI)
+  const bartoken = localStorage.getItem("token"); // Retrieving token from localStorage
+  const [showSuccessfull, setShowSuccessfull] = useState(false); // State for showing payment success message
+  const { fare, bookingId, bookingType, seatCount } = useAuth(); // Using useAuth hook to retrieve authentication context values
+  const [allFieldsFilled, setAllFieldsFilled] = useState(false); // State for checking if all payment fields are filled
 
-
-function FlightPayment() {
-  // State variables
-  const [selectedOption, setSelectedOption] = useState("UPI"); // State for selected payment option (UPI or Debit/Credit Card)
-  const bartoken = localStorage.getItem("token"); // Retrieve token from local storage
-  const [showSuccessfull, setShowSuccessfull] = useState(false); // State to control visibility of payment success message
-  const { fare, bookingId, bookingType, seatCount } = useAuth(); // Use authentication context to get booking details
-  const [allFieldsFilled, setAllFieldsFilled] = useState(false); // State to track if all required fields are filled
-
-  // Handle click on payment option (UPI or Debit/Credit Card)
+  // Handler for changing payment option
   const handleOptionClick = (option) => {
     setSelectedOption(option);
   };
 
-  // Handle input change for UPI ID or card details
+  // Handler for input change (validates UPI ID or card details based on selected option)
   const handleInputChange = (event) => {
     const isUPIOption = selectedOption === "UPI";
     const isDebitCreditCardOption = selectedOption === "DebitCreditCard";
@@ -30,41 +27,39 @@ function FlightPayment() {
     let isValid = false;
 
     if (isUPIOption) {
-      // Validate UPI ID
-      const isValidEmail = /^[^\s@]+@[^\s@]+$/.test(event.target.value.trim());
+      const isValidEmail = /^[^\s@]+@[^\s@]+$/.test(event.target.value.trim()); // Basic email validation for UPI ID
       isValid = isValidEmail;
     } else if (isDebitCreditCardOption) {
-      // Validate card details (assume non-empty for simplicity)
-      isValid = event.target.value.trim() !== "";
+      isValid = event.target.value.trim() !== ""; // Checking if card details are filled
     }
 
-    setAllFieldsFilled(isValid); // Update state based on validation
+    setAllFieldsFilled(isValid);
   };
 
-  // Fetch payment data from API on click of "Make Payment"
+  // Function to fetch payment data from API
   const fetchPaymentData = () => {
     if (allFieldsFilled) {
-      const api =
-        "https://academics.newtonschool.co/api/v1/bookingportals/booking";
+      // Fetching payment data if all fields are filled
+      const api = "https://academics.newtonschool.co/api/v1/bookingportals/booking";
 
       fetch(api, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${bartoken}`,
+          Authorization: `Bearer ${bartoken}`, // Setting Authorization header with token
           projectID: "f104bi07c490",
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           bookingType: bookingType,
           bookingDetails: {
-            flightId: bookingId,
+            hotelId: bookingId,
             startDate: "2023-10-09T10:03:53.554+00:00",
             endDate: "2023-10-09T10:03:53.554+00:00",
           },
         }),
       }).then((response) => {
         if (response.ok) {
-          setShowSuccessfull(!showSuccessfull); // Show payment success message
+          setShowSuccessfull(!showSuccessfull); // Showing success message on successful payment
         }
       });
     }
@@ -72,17 +67,19 @@ function FlightPayment() {
 
   return (
     <div>
-      <Navbar /> {/* Render the Navbar component */}
+      <Navbar /> {/* Rendering Navbar component */}
+      {/* Main content area */}
       <div className="w-[100%] h-[100%] bg-[#e8f2fa] flex justify-center">
         <div className=" w-[90%] h-[100%] flex max-[600px]:flex-col flex-row gap-[20px] justify-between mb-[20px]">
-          {/* Payment options section */}
+          {/* Left section for payment options */}
           <div className=" w-[70.5%] max-[600px]:w-[100%] mt-[20px]">
-            <div className={Classes.personalDetailFlight}>
-              <div className={Classes.bookingHeader}>
+            <div className={Classes.personalDetailHotel}>
+              <div className={Classes.bookingHotelHeader}>
                 <div className={Classes.PersPaymentmg}></div>
                 <span>Payment Mode</span>
               </div>
-              <div className="w-[100%] h-[100%] flex ">
+              {/* Payment options section */}
+              <div className="w-[100%] h-[100%] flex">
                 <div className={Classes.paymentLeftSection}>
                   {/* UPI payment option */}
                   <div
@@ -134,18 +131,19 @@ function FlightPayment() {
                         marginRight: "10px",
                       }}
                       src="https://banner2.cleanpng.com/20180630/iyq/kisspng-credit-card-debit-card-clip-art-5b37907f1a4f07.4745129515303681271078.jpg"
-                      alt="Credit/Debit Card Logo"
+                      alt="Debit/Credit Card Logo"
                     />
                     <div>
                       <h4>Credit/Cebit/ATM Card</h4>
                       <p style={{ fontSize: "11px", color: "gray" }}>
-                        Visa,MasterCard,Amex,Rupay And <br></br> More
+                        Visa,MasterCard,Amex,Rupay And <br /> More
                       </p>
                     </div>
                   </div>
                 </div>
-                {/* Payment input section */}
+                {/* Payment form section */}
                 <div className="w-[67%] max-[600px]:w-[100%] pt-[2%] pb-[2%] pl-[3%]">
+                  {/* UPI payment form */}
                   {selectedOption === "UPI" && (
                     <div className="w-[100%] mt-[13px] flex flex-col justify-center items-center">
                       <span className="  w-[100%] text-[13px] font-[600] flex justify-between items-center">
@@ -175,21 +173,22 @@ function FlightPayment() {
                           />
                         </div>
                       </div>
-                      {/* Total fare display and payment button */}
+                      {/* Total fare display */}
                       <div className="w-[100%] mt-[25px] flex items-center justify-between">
                         <div className="w-[50%] flex items-center">
                           <span className=" w-auto text-[#333333] text-[14px] font-bold pt-[5px] flex items-center gap-[5px]">
-                            Total Fare :{" "}
-                            <i>₹</i>
+                            Total Fare : <i>₹</i>
                           </span>
                           <span className=" w-auto text-[#F00] text-[28px] font-bold mt-[1.5%] ml-[5px] flex items-center">
-                            {fare * seatCount}
+                            {Math.floor(fare * seatCount)}
                           </span>
                         </div>
                         {/* Payment button */}
                         <div
                           className={`w-[40%] items-center flex justify-end  ${
-                            allFieldsFilled ? "cursor-pointer" : "cursor-not-allowed"
+                            allFieldsFilled
+                              ? "cursor-pointer"
+                              : "cursor-not-allowed"
                           }`}
                           onClick={fetchPaymentData}
                         >
@@ -205,7 +204,7 @@ function FlightPayment() {
                       </div>
                     </div>
                   )}
-                  {/* Debit/Credit Card payment section */}
+                  {/* Debit/Credit Card payment form */}
                   {selectedOption === "DebitCreditCard" && (
                     <div style={{ padding: "10px 20px 20px 20px" }}>
                       <div className="w-[100%] flex flex-col">
@@ -261,21 +260,22 @@ function FlightPayment() {
                           </div>
                         </div>
                       </div>
-                      {/* Total fare display and payment button */}
+                      {/* Total fare display */}
                       <div className="w-[100%] mt-[25px] flex items-center justify-between">
                         <div className="w-[50%] flex items-center">
                           <span className=" w-auto text-[#333333] text-[14px] font-bold pt-[5px] flex items-center gap-[5px]">
-                            Total Fare :{" "}
-                            <i>₹</i>
+                            Total Fare : <i>₹</i>
                           </span>
                           <span className=" w-auto text-[#F00] text-[28px] font-bold mt-[1.5%] ml-[5px] flex items-center">
-                            {fare * seatCount}
+                            {Math.floor(fare * seatCount)}
                           </span>
                         </div>
                         {/* Payment button */}
                         <div
                           className={`w-[40%] items-center flex justify-end  ${
-                            allFieldsFilled ? "cursor-pointer" : "cursor-not-allowed"
+                            allFieldsFilled
+                              ? "cursor-pointer"
+                              : "cursor-not-allowed"
                           }`}
                           onClick={fetchPaymentData}
                         >
@@ -292,11 +292,17 @@ function FlightPayment() {
                       {/* Terms and conditions */}
                       <p className="w-[100%] text-[12px] mt-[20px]">
                         By continuing to pay, I understand and agree with the{" "}
-                        <span style={{ color: "#008cff" }}>privacy policy</span>,
-                        the
-                        <span style={{ color: "#008cff" }}> user agreement</span>,
-                        and
-                        <span style={{ color: "#008cff" }}> terms of service</span>
+                        <span style={{ color: "#008cff" }}>privacy policy</span>
+                        , the
+                        <span style={{ color: "#008cff" }}>
+                          {" "}
+                          user agreement
+                        </span>
+                        , and
+                        <span style={{ color: "#008cff" }}>
+                          {" "}
+                          terms of service
+                        </span>
                         of EaseMyTrip
                       </p>
                     </div>
@@ -305,10 +311,10 @@ function FlightPayment() {
               </div>
             </div>
           </div>
-          {/* Price summary section */}
+          {/* Right section for price summary */}
           <div className="w-[26%] max-[600px]:w-[100%] mt-[60px] flex flex-col">
-            <div className={Classes.flightBookingAmont}>
-              <div className={Classes.flighBokkingAmountHeader}>
+            <div className={Classes.hotelBookingAmont}>
+              <div className={Classes.hotelBokkingAmountHeader}>
                 <div className="text-[18px] text-[#1a1a1a] h-[50px] flex items-center ml-[10px]">
                   <p>Price Summary</p>
                 </div>
@@ -320,38 +326,39 @@ function FlightPayment() {
                     Adult x 1
                   </div>
                   <div className="w-[30%] text-[#1a1a1a] text-[12px] h-[35px] font-[600] flex items-center gap-[5px]">
-                    <i>₹</i> {fare}
+                    <i>₹</i> {Math.floor(fare)}
                   </div>
                 </div>
                 <Divider flexItem />
                 {/* Seat count */}
                 <div className="w-[100%] border-b-2  border-b-[#e5e3e3] flex justify-between">
                   <div className="w-[66%] pl-[4%] text-[13px] text-[#1a1a1a] h-[35px] flex items-center">
-                    Traveller(s)
+                    Traveller
                   </div>
                   <div className="w-[30%] text-[#1a1a1a] text-[12px] h-[35px] font-[600] flex items-center gap-[5px]">
                     {seatCount} Traveller(s)
                   </div>
                 </div>
                 <Divider flexItem />
-                {/* Grand total */}
+                {/* Total fare */}
                 <div className="w-[100%] flex justify-between">
                   <div className="w-[66%] pl-[4%] text-[18px] text-[#d63b05] h-[35px] font-bold flex items-center">
                     Grand Total
                   </div>
                   <div className="w-[30%] text-[18px] text-[#d63b05] font-bold h-[35px] flex items-center gap-[5px]">
-                    <i>₹</i> {fare * seatCount}
+                    <i>₹</i>
+                    {Math.floor(fare * seatCount)}
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        {/* Show payment success message */}
+        {/* Showing payment success message */}
         {showSuccessfull && <PaymentSuccessfull />}
       </div>
     </div>
   );
 }
 
-export default FlightPayment;
+export default HotelPayment;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {useAuth} from "../Context";
-import Navbar from "./Navbar";
+ import Navbar from  "../../components/Navbar"; 
+// ./Navbar
 import Classes from "./Navabar.module.css";
 function MyBooking() {
     const[bookingData,setBookingData]= useState([]);
