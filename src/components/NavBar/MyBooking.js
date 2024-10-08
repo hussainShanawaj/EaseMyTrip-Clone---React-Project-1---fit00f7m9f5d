@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import {useAuth} from "../Context";
- import Navbar from  "../../components/Navbar"; 
+ import Navbar from  "./Navbar"; 
 // ./Navbar
-import Classes from "./Navabar.module.css";
+import Classes from "./Navbar.module.css";
 function MyBooking() {
     const[bookingData,setBookingData]= useState([]);
     const bartoken = localStorage.getItem("token");

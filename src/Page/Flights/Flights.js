@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import Classes from "./Flights.module.css";
-import Navbar from "../../components/NavBar/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import { Divider } from '@mui/material';
 import DatePicker from "react-datepicker";
 
@@ -163,7 +163,7 @@ const decrementInfantSeatCount = () => {
                         </div>
                     </div>
                 </div>
-                {flightFromOpen && <FlightFrom onclose={handleFlightFromOpen}/> }
+                {flightFromOpen && <FlightForm onclose={handleFlightFromOpen}/> }
                 <Divider orientation="vertical" className={Classes.divider}/>
                 <img
                 className={Classes.swapIcon}
@@ -179,11 +179,11 @@ const decrementInfantSeatCount = () => {
                         </div>
                         <div className={Classes.inputToSection}>
                             <span className="text-xl font-semibold cursor-pointer">
-                                {AirportFrom[0]}
+                                {AirportTo[0]}
                             </span>
                             <div className="text-sm cursor-pointer flex gap-[5px]">
-                                <span>[{AirportFrom[2]}]</span>
-                                <span>{AirportFrom[1]}</span>
+                                <span>[{AirportTo[2]}]</span>
+                                <span>{AirportTo[1]}</span>
                             </div>
                         </div>
 
@@ -201,7 +201,7 @@ const decrementInfantSeatCount = () => {
                         selected={flightDepartureDate}
                         onChange={(date)=>setFlightDepartureDate(date)}
                         minDate={new Date()}
-                        customInput= {<customInput/>}
+                        customInput= {<CustomInput/>}
                         />
                     </div>
                 </div>

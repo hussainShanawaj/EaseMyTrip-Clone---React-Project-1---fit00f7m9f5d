@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Classes from "./HotelHome.module.css";
-import Navbar from "../../components/NavBar/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import { Divider } from '@mui/material';
 import moment from 'moment';
 import DatePicker from "react-datepicker";

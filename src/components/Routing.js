@@ -1,16 +1,16 @@
 import React from 'react'
-import Navbar from "./NavBar/Navbar";
+import Navbar from "./Navbar/Navbar";
 import App from './App';
 import Flights from "../Page/Flights/Flights";
 import HotelHome from "../Page/Hotels/HotelHome";
-import HotelDetail from "../Page/Hotels/Hotel Detail/HotelDetail";
+import HotelDetail from "../Page/Hotels/Hotel_Detail/HotelDetail";
 import Hotels from "../Page/Hotels/Hotel Records/Hotels";
-import FlightRecords from "../Page/Flights/Flights Records/FlightRecords";
+import FlightRecords from "../Page/Flights/Flight_Records/FlightRecords";
 import PrivateRoute from './PrivateRoute';
 import FlightBooking from "../Page/Flights/Flight Booking/FlightBooking";
-import HotelBooking from "../Page/Hotels/Hotel Booking/HotelBooking";
+import HotelBooking from "../Page/Hotels/Hotel_Booking/HotelBooking";
 import FlightPayment from "../Page/Flights/Flight Booking/FlightPayment";
-import HotelPayment from "../Page/Hotels/Hotel Payment/HotelPayment";
+import HotelPayment from "../Page/Hotels/Hotel_Booking/HotelPayment";
 import MyBooking  from "./Navbar/MyBooking";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 

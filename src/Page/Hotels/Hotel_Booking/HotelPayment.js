@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import Navbar from "../../../components/NavBar/Navbar"; // Importing Navbar component
+import Navbar from "../../../components/Navbar/Navbar"; // Importing Navbar component
 import Classes from "../Hotels.module.css"; // Importing CSS modules
 import upiQr from "../../../Design/PhonePayUpiQr.jpg"; // Importing UPI QR image
 import { useAuth } from "../../../components/Context"; // Importing useAuth context hook

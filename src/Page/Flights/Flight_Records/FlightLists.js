@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Classes from "./FlightRecord.module.css"; // Import CSS module for styling
+import Classes from "./FlightRecords.module.css"; // Import CSS module for styling
 import { useAuth } from "../../../components/Context"; // Import authentication context hook
 import FlightDetail from "../Flight Detail/FlightDetail"; // Import FlightDetail component
 import { useNavigate } from "react-router-dom"; // Import useNavigate hook from React Router DOM
-import ModalLogin from "../../../components/NavBar/ModalLogin"; // Import ModalLogin component for login modal
+import ModalLogin from "../../../components/Navbar/ModalLogin";// Import ModalLogin component for login modal
 
 function FlightLists({ searchResults }) {
   const [flightDetailOpen, setFlightDetailOpen] = useState(false); // State for managing flight detail open/close

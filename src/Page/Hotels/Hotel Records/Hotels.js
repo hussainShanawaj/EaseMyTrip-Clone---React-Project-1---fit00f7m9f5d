@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import DatePicker from "react-datepicker";
 import moment from 'moment';
 import Classes from "../Hotels.module.css";
-import Navbar from '../../../components/NavBar/Navbar';
+import Navbar from '../../../components/Navbar/Navbar';
 import "react-datepicker/dist/react-datepicker.css";
 import _debounce from "lodash/debounce";
 import { Divider } from '@mui/material';

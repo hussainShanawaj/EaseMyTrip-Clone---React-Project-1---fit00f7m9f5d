@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from "../../../components/NavBar/Navbar";
+import Navbar from "../../../components/Navbar/Navbar";
 import { useAuth } from '../../../components/Context';
 import Classes from "../Hotels.module.css";
 import moment from 'moment';

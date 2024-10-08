@@ -8,9 +8,15 @@ const FlightForm = ({onclose}) =>{
     const [airport,setAirport] = useState("");
     const [airportDetail,setAirportDetail]= useState([]);
     const [liData,setLiData]= useState(false);
-    const{setAirportTo}= useAuth();
+    const{setAirportFrom}= useAuth();
 
-    const handleLiData=(e) =>{
+    const handleLiData = (city,name,iata_code)=>{
+        setAirportFrom([city,name,iata_code]);
+         setLiData(true);
+         onclose(liData);
+    }
+
+    const handleLiChange=(e) =>{
         const input = e.target.value;
         setAirport(input);
     };

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from "../../components/NavBar/Navbar";
+import Navbar from '../../../components/Navbar/Navbar';
 import moment from 'moment';
 import Classes from "./FlightRecords.module.css";
-import {useAuth} from "../../components/Context";
+import { useAuth } from '../../../components/Context';
 import FlightFrom from "../Flight DropDown/FlightFrom";
 import { Divider } from '@mui/material';
 import FlightTo from "../Flight DropDown/FlightTo";
