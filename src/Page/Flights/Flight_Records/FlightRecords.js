@@ -16,7 +16,7 @@ function FlightRecords() {
     const[flightRecordToOpen,setFlightRecordToOpen] = useState(false);
     const[flightTraveller, setFlightTraveller] = useState(false);
     const{
-        AirportForm,
+        AirportFrom,
         AirportTo,
         travellersCount,
         flightdepartureDate,
@@ -113,8 +113,8 @@ function FlightRecords() {
 
         const handleSliderChange = (event)=> {
             setSliderValue(event.target.value);
-        }
-        const handleCheckbpxRatingChange = (value)=> {
+        };
+        const handleCheckboxRatingChange = (value)=> {
             setSliderValue(value === sliderValue ? null : value);
         };
         const handleClickSet = (type,key,data)=>{
@@ -142,11 +142,11 @@ function FlightRecords() {
                     className={Classes.searchFromFlightRecord}>
                         <div className="h-[100%]">
                             <span className="text-[18px] font-[600] text-[#fff] cursor-pointer">
-                                {AirportForm[0]}
+                                {AirportFrom?.[0]}
                             </span>
                             <div className="text-sm text-[#fff] cursor-pointer flex gap-[5px]">
-                                <sapn>[{AirportForm[2]}]</sapn>
-                                <sapn>[{AirportForm[1]}]</sapn>
+                                <span>[{AirportFrom?.[2]}]</span>
+                                <span>[{AirportFrom?.[1]}]</span>
                             </div>
                         </div>
                     </div>
@@ -175,11 +175,11 @@ function FlightRecords() {
                     >
                         <div className="h-[100%]">
                             <span className="text-[18px] font-600 text-[#fff] cursor-pointer">
-                                {AirportTo[0]}
+                                {AirportTo?.[0]}
                             </span>
                             <div className="text-sm text-[#fff] cursor-pointer flex gap-[5px]">
-                                <span>[{AirportForm[2]}]</span>
-                                <span>[{AirportForm[1]}]</span>
+                                <span>[{AirportFrom?.[2]}]</span>
+                                <span>[{AirportFrom?.[1]}]</span>
                             </div>
                         </div>
                     </div>
@@ -294,7 +294,7 @@ function FlightRecords() {
                     min="0"
                     max="2500"
                     value={sliderValue}
-                    onChange={handleSliderChange}
+                    // onChange={handleSliderChange}
                     onClick={()=> handleClickSet("ticketPrice","$gte")}
                     />
                     <div
@@ -310,7 +310,7 @@ function FlightRecords() {
                  </div>
                  <div className="mt-[30px]">
                     <p className="text-[#000] text-[14px] font-[600]">
-                        Stop From {AirportFrom[0]}
+                        Stop From {AirportFrom?.[0]}
                     </p>
                     <div className="flex justify-between">
                         <div className="mt-[10px] flex gap-[5px] text-[12px] font-[400] text-[#333] cursor-pointer">
@@ -408,7 +408,7 @@ function FlightRecords() {
                 </div>
                 <div className="mt-[30px]">
                     <p className="text-[#000] text-[14px] font-[600]">
-                        Departure From {AirportForm[0]}
+                        Departure From {AirportFrom?.[0]}
                     </p>
                     <div className="w-[100%]">
                         <div className="w-[100%] border border-solid border-[3e0e0e0] bg-[#fff] mt-[5px] rounded-[5px] flex">

@@ -1,18 +1,21 @@
+
 .flightBooking{
-    background:#2f81ed;
-    background-image: linear-gradient(to right,#2F80ED,#56CCF2);
+    background-color: #2f81ed;
+    background-image: linear-gradient(to right, #2F80ED, #56CCF2);
     width: 100%;
     height: 40vh;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.headSearchBar{
+.headSearchbar{
     display: flex;
     flex-direction: row;
     justify-content: end;
     width: 100%;
-    height: 5vh;
+    height: 5vh; 
+  
 }
 .captionFlight{
     width: 50%;
@@ -23,6 +26,7 @@
     font-size: 20px !important;
     color: #fff;
     font-weight: 600;
+    
 }
 .searchBarFlight{
     background-color: #fff;
@@ -46,11 +50,12 @@
     height: 90%;
     width: 95%;
 }
+ 
 .pInputFlight{
     font-weight: 500;
     color: #737373;
     font-size: 14px;
-
+    
 }
 .inputFormSectionFlight{
     width: 100%;
@@ -59,24 +64,26 @@
     align-items: center;
     justify-content: center;
 }
+
 .searchToFlight{
     height: 90%;
     width: 95%;
+    
 }
 .searchDepartureFlight{
-height: 100%;
-width: 14vw;
-display: flex;
-justify-content: center;
-align-items: center;
-cursor: pointer;
+    height: 100%;
+    width: 14vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 .searchDepartureFlight:hover{
     background-color: #bfdef85d;
 }
 .flighthomeDeparture{
     width: 92%;
-    height: 80%;
+    height: 90%;
 }
 .departureHeading{
     display: flex;
@@ -86,8 +93,8 @@ cursor: pointer;
     height: 7vh;
     width: 100%;
     border: 0.5px solid lightgray;
-    border: none;
     border-radius: 5px;
+    border: none;
     margin-top: 5px;
     font-size: 22px;
     font-weight: 700;
@@ -98,9 +105,12 @@ cursor: pointer;
 .inputFlight:focus{
     outline: none;
 }
+
+/* till yet complete */
 .searchReturn{
     height: 12vh;
     width: 12vw;
+   
 }
 .searchTravellerFlight{
     height: 100%;
@@ -109,11 +119,19 @@ cursor: pointer;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    
 }
 .searchTravellerFlight:hover{
     background-color: #bfdef85d;
 }
 .hotelChooseTraveller{
+    width: 92%;
+    height: 90%;
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.searchButtonFlight{
     height: 100%;
     width: 15%;
     background-color: #ef6614;
@@ -124,9 +142,10 @@ cursor: pointer;
     cursor: pointer;
 }
 .swapIcon{
-    height: 4.5vh;
-    margin-left: -16px;
-    margin-right: 30px;
+   height: 4.5vh;
+   margin-left: -16px;
+   margin-top: 30px;
+
 }
 .inputFormSection{
     width: 19vw;
@@ -139,19 +158,25 @@ cursor: pointer;
     height: 7vh;
     width: 95%;
     border: 0.5px solid lightgray;
+    border-radius: 5px;
+
 }
+
+/* fo To Modal */
 .inputToSection{
+    width: 19vw;
     height: 8vh;
-    width: 95%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
 }
 .toSearchBox{
     height: 7vh;
     width: 95%;
     border: 0.5px solid lightgray;
+    border-radius: 5px;
 }
+
 .listFlightTo{
     display: flex;
     flex-direction: column;
@@ -160,38 +185,34 @@ cursor: pointer;
 .spanFlightTo{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     width: 100%;
 }
-.spanFlightTo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
+/* Offers */
 .offerHeadingFlight{
     height: 6vh;
     margin-top: 30px;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .headingDivFlight{
     height: 90%;
     width: 25%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
-.headingOffer{
+.headingOffers{
     font-size: 34px;
     font-weight: 700;
 }
 .listOffers{
     height: 5vh;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     gap: 50px;
     margin-top: 15px;
 }
@@ -200,42 +221,42 @@ cursor: pointer;
     cursor: pointer;
     font-size: 15px;
     color: #000;
-    padding: 6px 15px;
+    padding: 6px 15px 
 }
 .listOffersFlight:active{
-    background-color: #2196F3;
+    background: #2196F3;
     color: #fff;
 }
+
 .flightOffersSection{
     height: 45vh;
     margin-top: 15px;
     width: 100%;
     display: flex;
-    align-items: center;
     flex-direction: row;
-    overflow-y:auto ;
-    gap: 10px;
-
-    
-}
-.flightOffersBoxes{
-    height: 95%;
-    width: 25%;
-    box-sizing: border-box;
-    flex: 1 0 auto;
-    display: flex;
     align-items: center;
-    flex-direction: column;
-    margin-left: 10px;
-    background-color: rgba(250,253,255,1);
-    border-radius: 15px;
-    border: 1px solid #F5F5F5;
+    overflow-y: auto;
+    gap: 10px;
 }
-.offerFlightImageDiv{
+.flightOfersBoxes{
+    height: 95%;
+    width: 22%;
+  box-sizing: border-box; 
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10px;
+  background-color: rgba(250, 253, 255, 1);
+  box-shadow: 0 0 7px rgb(0 -1 6 / 6%) inset;
+  border-radius: 15px;
+  border: 1px solid #F5F5F5;
+}
+.offersFlightImagediv{
     height: 95%;
     width: 95%;
+    /* border: 1px solid blue; */
     margin-top: 7px;
-
 }
 .flightOffersImage{
     height: 70%;
@@ -252,52 +273,54 @@ cursor: pointer;
     font-weight: 600;
     width: 100%;
     color: #172033;
-    margin-top:10px;
+    margin-top: 10px;
 }
+
 .bookingFlightData{
     float: left;
     width: 100%;
     border: 1px solid #b8d0e5;
-    background:#ffffff;
+    background: #ffffff;
     border-radius: 4px;
     box-shadow: 0 0 6px rgb(64 64 64 / 21%);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 .bookingHeader{
     width: 100%;
     font-size: 18px;
     color: #1a1a1a;
-    background: 4px;
-    box-shadow: 4px;
-    box-shadow: 0 0 6px rgb(64 64 64 / 21%);
+    height: 50px;
+    line-height: 50px;
+    background: linear-gradient(90deg, #c7dffe 0%, #d8f2ff 100%);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    gap: 5px;
 }
-.flightBookingIng{
+.flightbookingImg{
     float: left;
     content: " ";
     background: url(https://flight.easemytrip.com/Content/img/traveller/img-sprite.png);
     width: 35px;
     height: 35px;
     background-position: -60px -4px;
-    margin-top:8px;
+    margin-top: 8px;
 }
-.flightBookingDeatails{
+.flightBookingDetails{
     width: 100%;
     float: left;
     border: 1px solid #dad6d6;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
     border-radius: 4px;
-    background-color: #fff;
-    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    background-color:#fff ;
+    margin-top: 15px;
+    box-shadow: 0 0 3px rgba(0,0,0,.2);
     display: flex;
-    align-items: center;
     justify-content: center;
-
+    align-items: center;
+    margin-bottom: 15px;
 }
 .flightbookDetailImg{
     background: url(https://flight.easemytrip.com/Content/img/traveller/img-sprite.png);
@@ -330,7 +353,7 @@ cursor: pointer;
     left: 0;
     right: 0;
     top: -12px;
-    background-position: -235px -3px;
+    background-position: -265px -3px;
 }
 .rightDotFlightBooking{
     float: right;
@@ -342,29 +365,31 @@ cursor: pointer;
     margin-top: -3px;
     margin-right: -3px;
 }
-.flightBookinngAmount{
+
+.flightBookingAmont{
     float: left;
     width: 100%;
     border: 1px solid #b8d0e5;
+    background: #ffffff;
     border-radius: 4px;
     box-shadow: 0 0 6px rgb(64 64 64 / 21%);
 }
-.flightBookingAmountHeader{
+.flighBokkingAmountHeader{
     width: 100%;
-    background: linear-gradient(90deg, #c7dffe, #d8f2ff 100%);
+    background: linear-gradient(90deg, #c7dffe 0%, #d8f2ff 100%);
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
 }
+/* Traveller DropDown */
 .travellerInput{
     border: 0;
-    text-align:center;
+    text-align: center;
     border-left: 1px solid #dcdcdc;
     border-right: 1px solid #dcdcdc;
     font-size: 14px;
     width: 30px;
     height: 31px;
     background: #f6f9ff;
-
 }
 .travellerInput:focus{
     outline: none;
@@ -374,40 +399,51 @@ cursor: pointer;
     border-width: 0 2px 2px 0;
     display: inline-block;
     padding: 3px;
-    transform: rotate(45deg);
+    transform: rotate( 45deg );
     position: relative;
     top: -1px;
-    margin-left: 10px;
+    margin-left: 10px 
 }
 .personalDetail{
-    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.21);
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.21);
     width: 95%;
     height: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #b8d0e5;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.personalDetailFlight{
+    float: left;
+    width: 100%;
+    /* border: 1px solid #b8d0e5;
+    background: #ffffff; */
     margin-top: 40px;
     border-radius: 4px;
     box-shadow: 0 0 6px rgb(64 64 64 / 21%);
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     border-radius: 5px;
     background-color: #fff;
 }
-.personalDataMobileNo{
+.persnolDataFlightMobileNo{
     height: 30px;
 }
-.personalDataMobileNo:focus{
+.persnolDataFlightMobileNo:focus{
+    outline: none;
+
+}
+.persnolDataFlightEmail{
+    height: 30px;
+}
+.persnolDataFlightEmail:focus{
     outline: none;
 }
-.personalDataFlightEmail{
-    height: 30px;
-}
-.personalDataFlightEmail{
-    height: 30px;
-}
-.personalDataFlightEmail:focus{
-    outline: none;
-}
-.PersBookingImg{
+.PersbookingImg{
     float: left;
     content: " ";
     background: url(https://flight.easemytrip.com/Content/img/traveller/img-sprite.png);
@@ -416,7 +452,7 @@ cursor: pointer;
     background-position: -92px -85px;
     margin-top: 8px;
 }
-.PersPaymentImg{
+.PersPaymentmg{
     float: left;
     content: " ";
     background: url(https://bus.easemytrip.com/NewTravellerCss/img/img-sprite-v2.png);
@@ -424,15 +460,14 @@ cursor: pointer;
     height: 35px;
     background-position: -227px -3px;
     margin-top: 11px;
-
 }
-
 .paymentLeftSection{
     width: 28%;
     float: left;
     padding: 0;
     background: #f8f8f8;
     border-right: 1px solid #ccc;
+    height: 100vh;
 }
 .paymentUpiInput{
     margin-bottom: 2%;
@@ -443,27 +478,30 @@ cursor: pointer;
     padding-left: 2%;
     color: #000;
     font-size: 14px;
-    border-radius: 4px;
+    border-radius: 4px
 }
 .paymentUpiInput:focus{
     outline: none;
 }
 .paymentImg{
     float: right;
-    content:" ";
+    content: " ";
     width: 15px;
     background: url(https://bus.easemytrip.com/NewTravellerCss/img/paymnt-rec.png);
     height: 24px;
     background-position: -314px 166px;
 }
 @media(max-width:600px){
+    
     .flightBooking{
-        justify-content: center;
+        justify-content: space-evenly;
         height: 60vh;
     }
     .headSearchbar{
         height: auto;
+       
     }
+
     .captionFlight{
         width: 70%;
     }
@@ -476,7 +514,6 @@ cursor: pointer;
     .mainDivFlightSearch{
         width: 100%;
         border-bottom: 1px solid #e0dede;
-
     }
     .inputToSection{
         flex-direction: row;
@@ -488,71 +525,73 @@ cursor: pointer;
         display: none;
     }
     .swapIcon{
-        display: none;
-    }
-    .searchDepartureFlight{
+      display: none;
+     }
+     .searchDepartureFlight{
         width: 100%;
         border-bottom: 1px solid #e0dede;
-
-    }
-    .searchTravellerFlight{
+     }
+     .searchTravellerFlight{
         width: 100%;
         border-bottom: 1px solid #e0dede;
-    }
-    .searchButtonFlight{
+     }
+     .searchButtonFlight{
         width: 95%;
         border-radius: 40px;
         margin-bottom: 5px;
         margin-top: 5px;
-    }
-    .h3Search{
+     }
+     .h3Search{
         height: 5vh;
         display: flex;
         align-items: center;
-    }
-    .offerHeadingFlight{
+     }
+     .offerHeadingFlight{
         width: 100%;
-    }
-    .headingDivFlight{
+     }
+     .headingDivFlight{
         width: 90%;
-
-    }
-    .listOffers{
+     }
+     .listOffers{
         width: 100%;
         gap: 5px;
-    }
-    .offerFlightImageDiv{
+       
+     }
+     .offersFlightImagediv{
         display: flex;
         flex-direction: column;
         gap: 10px;
-    }
-    .flightOffersBoxes{
+     }
+     .flightOfersBoxes{
         width: 50%;
-    }
-    .flightOffersImage{
+     }
+     .flightOffersImage{
         height: 50%;
-    }
-    .flightFromToImg{
+     }
+     .flightFromToImg{
         top: 22.5em;
-    }
-    .personalDataFlightEmail{
+     }
+     .persnolDataFlightMobileNo{
         height: 5vh;
         width: 98%;
-    }
-    .personalDataFlightMobileNo{
+     }
+     .persnolDataFlightEmail{
         height: 5vh;
         width: 98%;
-    }
-    .paymentLeftSection{
+     }
+     .paymentLeftSection{
         display: none;
-    }
-    
+     }
 }
-.flightIcon{
-    margin-right: 5px;
 
-}
-.cityName{
-    vertical-align: middle;
-    margin-top: -5px;
-}
+.flightIcon {
+    margin-right: 5px; /* Adjust spacing between icon and text as needed */
+  }
+  
+  .cityName {
+    vertical-align: middle; /* Align text vertically */
+    margin-top: -5px; /* Adjust vertical alignment as needed */
+  }
+  
+  /* Add other styles as needed */
+  

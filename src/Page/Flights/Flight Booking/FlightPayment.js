@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "../../../components/Navbar/Navbar";
+import Navbar from "../../../components/NavBar/Navbar";
 import Classes from "../Flights.module.css";
 import upiQr from "../../../Design/PhonePayUpiQr.jpg";
 import { useAuth } from "../../../components/Context";

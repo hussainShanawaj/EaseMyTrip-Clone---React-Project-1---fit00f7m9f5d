@@ -16,13 +16,13 @@ const FlightForm = ({onclose}) =>{
          onclose(liData);
     }
 
-    const handleLiChange=(e) =>{
+    const handleChange=(e) =>{
         const input = e.target.value;
         setAirport(input);
     };
    
     useEffect(()=>{
-        const api = `https://academics.newtonschool.co/api/v1/bookingportals/flight/${flightId}`;
+        const api = `https://academics.newtonschool.co/api/v1/bookingportals/airport?search={"city":"${airport}"}`;
 
         const fetchData = () =>{
             fetch(api,{
@@ -35,6 +35,8 @@ const FlightForm = ({onclose}) =>{
             .then((flightdata)=>{
                 const data = flightdata.data.airports;
                 setAirportDetail(data);
+                console.log(airportDetail);
+                console.log(data);
             });
         };
         fetchData();
@@ -50,6 +52,7 @@ const FlightForm = ({onclose}) =>{
             />
             <input
             className="w-11/12 p-2 border-none outline-none bg-slate-50"
+            onChange={handleChange}
             />
         </div>
 
